@@ -15,7 +15,7 @@ angular.module('todoApp', [])
       todoList.todos.push({text:todoList.todoText, done:false});
       todoList.todoText = '';
     };
- 
+
     todoList.remaining = function() {
       var count = 0;
       angular.forEach(todoList.todos, function(todo) {
@@ -23,7 +23,7 @@ angular.module('todoApp', [])
       });
       return count;
     };
- 
+
     todoList.archive = function() {
       var oldTodos = todoList.todos;
       todoList.todos = [];
@@ -46,5 +46,5 @@ angular.module('todoApp', [])
       window.localStorage.setItem('theme',  todoList.theme);
     };
 
-   $window.onbeforeunload =  $scope.onExit;
+    $window.onbeforeunload =  $scope.onExit;
 });

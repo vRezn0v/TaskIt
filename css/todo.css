@@ -30,9 +30,9 @@
     background-color: var(--dark);
     padding-top: 2px;
     padding-left: 8px !important;
-    padding-right: 2px !important;
+    padding-right: 8px !important;
     border-radius: 10px;
-    overflow-y: scroll;
+    overflow-y: auto;
     height: 75vh;
 }
 
@@ -40,7 +40,7 @@
     .content {
         height: 70vh;
     }
-  }
+}
 
 
 .task {
@@ -67,19 +67,19 @@
 
 ::-webkit-scrollbar {
     width: 5px;
-  }
-  
+}
+
 ::-webkit-scrollbar-track {
     background: transparent;
     border-radius: 25px;  }
-   
+
 ::-webkit-scrollbar-thumb {
     background: var(--accent); 
-  }
-  
+}
+
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
-  }
+}
 
 .bottom { 
     padding: 20px 5px;
