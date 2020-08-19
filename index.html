@@ -60,10 +60,28 @@
                                 </div>
                             </div>
                             <br>
+                            <div class="import">
+                                Import Data:<br><br>
+                                <div class="input-group mb-3">
+                                    <div class="custom-file">
+                                        <input type="file" class="custom-file-input importJSON" id="inputGroupFile02" name="importdata" required>
+                                        <label class="custom-file-label" for="inputGroupFile02">Choose file</label>
+                                    </div>
+                                    <div class="input-group-append">
+                                        <span class="input-group-text bg-success text-light" ng-click="todoList.importJSON()" style="cursor: pointer;">Upload</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="clear">
+                                Export App Data:<br><br>
+                                <a href="#" id="exportJSON"><button class="btn btn-primary" ng-click="todoList.exportJSON()" style="width: 100%;">Export</button></a>
+                            </div>
+                            <br>
                             <div class="clear">
                                 Reset App Data:<br><br>
                                 <button class="btn btn-danger" ng-click="todoList.reset()" style="width: 100%;">Reset</button>
-                            </div> 
+                            </div>
+                            <br>
                         </div>
                         <div class="modal-footer">
                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>

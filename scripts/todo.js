@@ -1,10 +1,8 @@
 angular.module('todoApp', [])
   .controller('TodoListController', function($scope, $window) {
     var todoList = this;
-    console.log(window.localStorage.todo);
     todoList.todos = (localStorage.getItem('todo')!==null) ? JSON.parse(localStorage.getItem('todo')) : [{text:'Use Bootstrap', done:true},{text:'Implement jQuery', done:true}];
     todoList.theme = (localStorage.getItem('theme')!==null) ? localStorage.getItem('theme') : 'light';
-    console.log(todoList.theme);
     todoList.changeTheme = function(themeclass){
       todoList.theme = themeclass;
       window.localStorage.setItem('theme', todoList.theme);
@@ -38,6 +36,32 @@ angular.module('todoApp', [])
         todoList.todos = [];
         window.localStorage.setItem('todo',  JSON.stringify(todoList.todos));
       }
+    }
+    todoList.exportJSON = function() {
+      var exportFile = "tasks.json";
+      var fstr = JSON.stringify(todoList.todos);
+      var dataUri = 'data:application/json;charset=utf-8,' + encodeURIComponent(fstr);
+      document.getElementById('exportJSON').href = dataUri;
+      document.getElementById('exportJSON').setAttribute('download', exportFile);
+      console.log("DATA EXPORTED");
+    }
+    todoList.importJSON = function() {
+      var files = document.getElementsByClassName('importJSON')[0].files;
+      console.log(files);
+      if (files.length <= 0) {
+        return false;
+      }
+      var fr = new FileReader();
+
+      fr.onload = function(e) { 
+        console.log(e);
+        var result = JSON.parse(e.target.result);
+        todoList.todos = result;
+        window.localStorage.setItem('todo',  JSON.stringify(todoList.todos));
+      }
+      fr.readAsText(files.item(0));
+      console.log("DATA IMPORTED");
+      location.reload();
     }
 
     $scope.onExit = function() {
