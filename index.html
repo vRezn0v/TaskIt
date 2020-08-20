@@ -10,15 +10,17 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cutive&family=Cutive+Mono&family=Fira+Code:wght@500&family=Fira+Sans:wght@500&display=swap" rel="stylesheet"> 
 </head>
 <body ng-controller="TodoListController as todoList" class="{{todoList.theme}} main">
     <div class="container align-content-center">
         <div class="header">
-            <h2 class="display-3">Todo</h2>
-            <button type="button" class="btn" data-toggle="modal" data-target="#themeSelector">Settings</button>
+            <h2 class="app-title">Todo</h2>
+            <button type="button" class="btn settings-btn" data-toggle="modal" data-target="#themeSelector">Settings</button>
         </div>
-        <div>
-            <span>{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+        <div class="other-half">
+            <span class="remain">{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
                 [ <a href="" ng-click="todoList.archive()">Archive</a> ]
                 <div class="container align-items-center content">
                     <ul class="list-unstyled">
@@ -45,7 +47,7 @@
                     <div class="modal-dialog modal-xl modal-dialog-centered">
                     <div class="modal-content">
                         <div class="modal-header">
-                            <h4 class="modal-title">Settings</h4>
+                            <h4 class="modal-title settings">Settings</h4>
                             <button type="button" class="close" data-dismiss="modal">&times;</button>
                         </div>
                         <div class="modal-body">
@@ -57,6 +59,9 @@
                                 <div class="dropdown-menu" style="width: 100%;">
                                     <a class="dropdown-item" ng-click="todoList.changeTheme('arizona')" href="#">Arizona</a>
                                     <a class="dropdown-item" ng-click="todoList.changeTheme('light')" href="#">Light</a>
+                                    <a class="dropdown-item" ng-click="todoList.changeTheme('coffee')" href="#">Coffee</a>
+                                    <a class="dropdown-item" ng-click="todoList.changeTheme('purple')" href="#">Devil</a>
+                                    <a class="dropdown-item" ng-click="todoList.changeTheme('gray')" href="#">Grayscale</a>
                                 </div>
                             </div>
                             <br>

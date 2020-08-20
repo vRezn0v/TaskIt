@@ -14,15 +14,50 @@
     --dark: #2A918C;
 }
 
+.coffee {
+    --bg: #CFB188;
+    --accent: #8F7B5E;
+    --text: #42392C;
+    --fill: #695A45;
+    --dark: #837056;
+}
+
+.purple {
+    --bg: #29203B;
+    --accent: #8F7B5E;
+    --text: #A79CBA;
+    --fill: #797287;
+    --dark: #35313B;
+}
+
+.gray {
+    --bg: #D7D2D9;
+    --accent: #8B888C;
+    --text: #4C4A4D;
+    --fill: #989499;
+    --dark: #747175;
+}
+
 .main {
     background-color: var(--bg);
     color: var(--text);
+    height: 100vh;
+}
+
+.remain {
+    font-family: 'Fira Code', mono;
+    margin-bottom: 5px;
 }
 
 .header {
     display: flex;
     flex-flow: row wrap;
     justify-content: space-between;
+}
+
+.header .app-title {
+    font-family: 'Abril Fatface', cursive;
+    font-size: 10vh;
 }
 
 .content {
@@ -34,6 +69,7 @@
     border-radius: 10px;
     overflow-y: auto;
     height: 75vh;
+    font-family: 'Fira Sans', sans-serif;
 }
 
 @media only screen and (max-width: 600px) {
@@ -92,12 +128,21 @@
 }
 
 .add {
-    background-color: var(--dark);
+    background-color: var(--accent);
 }
 
 .done-true {
     text-decoration: line-through;
     color: grey;
+}
+
+.settings {
+    font-family: 'Cutive', serif;
+}
+
+.settings-btn {
+    font-family: 'Cutive', serif;
+    color: var(--text)!important;
 }
 
 .theme-selector {
