@@ -13,6 +13,8 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Abril+Fatface&family=Cutive&family=Cutive+Mono&family=Fira+Code:wght@500&family=Fira+Sans:wght@500&display=swap" rel="stylesheet"> 
 </head>
+
+
 <body ng-controller="TodoListController as todoList" class="{{todoList.theme}} main">
     <div class="container align-content-center">
         <div class="header">
@@ -20,8 +22,9 @@
             <button type="button" class="btn settings-btn" data-toggle="modal" data-target="#themeSelector">Settings</button>
         </div>
         <div class="other-half">
-            <span class="remain">{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
+                <span class="remain">{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
                 [ <a href="" ng-click="todoList.archive()">Archive</a> ]
+                <button type="button" class="btn settings-btn" data-toggle="modal" data-target="#archives">Show Archived</button>
                 <div class="container align-items-center content">
                     <ul class="list-unstyled">
                         <li ng-repeat="todo in todoList.todos">
@@ -93,6 +96,34 @@
                         </div>
                 </div>
             </div>
+        </div>
+        <div class="modal" id="archives">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title settings">Archive</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="container align-items-center content">
+                            <ul class="list-unstyled">
+                                <li ng-repeat="todo in todoList.archive">
+                                    <div class="container-fluid task flex-row">
+                                        <label class="checkbox check">
+                                            <input type="checkbox" ng-model="todo.done" class="box">
+                                            <span class="todo done-{{todo.done}}">{{todo.text}}</span>
+                                        </label>
+                                    </div>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-info" ng-click="todoList.unarchive()">Unarchive</button>
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                    </div>
+            </div>
+        </div>
         </div>
     </body>
 </html>

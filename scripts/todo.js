@@ -1,8 +1,10 @@
 angular.module('todoApp', [])
   .controller('TodoListController', function($scope, $window) {
     var todoList = this;
-    todoList.todos = (localStorage.getItem('todo')!==null) ? JSON.parse(localStorage.getItem('todo')) : [{text:'Use Bootstrap', done:true},{text:'Implement jQuery', done:true}];
+    todoList.todos = (localStorage.getItem('todo')!==null) ? JSON.parse(localStorage.getItem('todo')) : [];
     todoList.theme = (localStorage.getItem('theme')!==null) ? localStorage.getItem('theme') : 'light';
+    todoList.archive = (localStorage.getItem('archive')!==null) ? JSON.parse(localStorage.getItem('archive')) : [];
+    
     todoList.changeTheme = function(themeclass){
       todoList.theme = themeclass;
       window.localStorage.setItem('theme', todoList.theme);
@@ -25,18 +27,46 @@ angular.module('todoApp', [])
     todoList.archive = function() {
       var oldTodos = todoList.todos;
       todoList.todos = [];
+      archive = [];
       angular.forEach(oldTodos, function(todo) {
         if (!todo.done) todoList.todos.push(todo);
+        else archive.push(todo);
       });
+      todoList.archive=archive;
+      angular.forEach(archive, function(todo) {
+        todoList.archive.push(todo);
+      });
+      this.update(todoList.todos, todoList.archive);
+    };
+
+    todoList.unarchive = function() {
+      var oldArchive = todoList.archive;
+      todoList.archive = [];
+      angular.forEach(oldArchive, function(todo) {
+        if (!todo.done) todoList.archive.push(todo);
+        else todoList.todos.push(todo);
+      });
+      this.update(todoList.todos, todoList.archive);
     };
     
+
     todoList.reset = function() {
       if (confirm("This Action will delete all your tasks. Please confirm.")) {
         window.localStorage.clear();
-        todoList.todos = [];
-        window.localStorage.setItem('todo',  JSON.stringify(todoList.todos));
+        update([] , []);
+        location.reload();
       }
     }
+
+    todoList.update = function(todos, archive) {
+      window.localStorage.clear();
+      window.localStorage.setItem('todo',  JSON.stringify(todos));
+      if (todoList.archive!==[])
+            window.localStorage.setItem('archive',  JSON.stringify(archive));
+      else
+            window.localStorage.setItem('archive',  null);
+    }
+
     todoList.exportJSON = function() {
       var exportFile = "tasks.json";
       var fstr = JSON.stringify(todoList.todos);
@@ -67,6 +97,7 @@ angular.module('todoApp', [])
     $scope.onExit = function() {
       window.localStorage.clear();
       window.localStorage.setItem('todo',  JSON.stringify(todoList.todos));
+      window.localStorage.setItem('archive',  JSON.stringify(todoList.archive));
       window.localStorage.setItem('theme',  todoList.theme);
     };
 
