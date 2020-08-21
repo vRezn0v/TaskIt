@@ -29,7 +29,26 @@ angular.module('todoApp', [])
       todoList.todos = [];
       angular.forEach(oldTodos, function(todo) {
         if (!todo.done) todoList.todos.push(todo);
-        else todoList.todoarchive.push(todo);
+        else {
+          todo.done = false;
+          todoList.todoarchive.push(todo);
+        }
+      });
+    };
+
+    todoList.unarchive = function() {
+      var oldArchive = todoList.todoarchive;
+      todoList.todoarchive = [];
+      angular.forEach(oldArchive, function(todo) {
+        
+        if (!todo.done) {
+          todo.done = false;
+          todoList.todoarchive.push(todo);
+        }
+        else {
+          todo.done = false;
+          todoList.todos.push(todo);
+        }
       });
     };
     
@@ -37,7 +56,9 @@ angular.module('todoApp', [])
       if (confirm("This Action will delete all your tasks. Please confirm.")) {
         window.localStorage.clear();
         todoList.todos = [];
+        todoList.todoarchive = [];
         window.localStorage.setItem('todo',  JSON.stringify(todoList.todos));
+        window.localStorage.setItem('archive',  JSON.stringify(todoList.todoarchive));
       }
     }
     todoList.exportJSON = function() {
