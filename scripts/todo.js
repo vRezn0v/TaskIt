@@ -3,6 +3,8 @@ angular.module('todoApp', [])
     var todoList = this;
     todoList.todos = (localStorage.getItem('todo')!==null) ? JSON.parse(localStorage.getItem('todo')) : [{text:'Welcome to TaskIt', done:true},{text:'Have a nice day!', done:false}];
     todoList.theme = (localStorage.getItem('theme')!==null) ? localStorage.getItem('theme') : 'light';
+    todoList.todoarchive = (localStorage.getItem('archive')!==null) ? JSON.parse(localStorage.getItem('archive')) : [];
+
     todoList.changeTheme = function(themeclass){
       todoList.theme = themeclass;
       window.localStorage.setItem('theme', todoList.theme);
@@ -27,6 +29,26 @@ angular.module('todoApp', [])
       todoList.todos = [];
       angular.forEach(oldTodos, function(todo) {
         if (!todo.done) todoList.todos.push(todo);
+        else {
+          todo.done = false;
+          todoList.todoarchive.push(todo);
+        }
+      });
+    };
+
+    todoList.unarchive = function() {
+      var oldArchive = todoList.todoarchive;
+      todoList.todoarchive = [];
+      angular.forEach(oldArchive, function(todo) {
+        
+        if (!todo.done) {
+          todo.done = false;
+          todoList.todoarchive.push(todo);
+        }
+        else {
+          todo.done = false;
+          todoList.todos.push(todo);
+        }
       });
     };
     
@@ -34,7 +56,9 @@ angular.module('todoApp', [])
       if (confirm("This Action will delete all your tasks. Please confirm.")) {
         window.localStorage.clear();
         todoList.todos = [];
+        todoList.todoarchive = [];
         window.localStorage.setItem('todo',  JSON.stringify(todoList.todos));
+        window.localStorage.setItem('archive',  JSON.stringify(todoList.todoarchive));
       }
     }
     todoList.exportJSON = function() {
@@ -67,6 +91,7 @@ angular.module('todoApp', [])
     $scope.onExit = function() {
       window.localStorage.clear();
       window.localStorage.setItem('todo',  JSON.stringify(todoList.todos));
+      window.localStorage.setItem('archive',  JSON.stringify(todoList.todoarchive));
       window.localStorage.setItem('theme',  todoList.theme);
     };
 
