@@ -52,6 +52,11 @@ angular.module('todoApp', [])
       });
     };
     
+    todoList.editTask = function(object) {
+      let todo = object.todo;
+      console.log(todo.text);
+    }
+
     todoList.reset = function() {
       if (confirm("This Action will delete all your tasks. Please confirm.")) {
         window.localStorage.clear();

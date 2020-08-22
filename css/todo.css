@@ -53,6 +53,32 @@
     overflow: hidden;
 }
 
+#main .other-half {
+    height: 85vh;
+    overflow: hidden;
+}
+
+.content {
+    padding-top: 2px;
+    padding-left: 8px !important;
+    padding-right: 8px !important;
+    border-radius: 10px;
+    height: 75vh;
+    background-color: var(--fill);
+    overflow: hidden;
+    display: flex;
+    flex-flow: column nowrap;
+}
+
+.bottom { 
+    bottom: 0;
+    padding-bottom: 0px;
+    margin-bottom: 0px;
+    margin-top: 1vh;
+    width: 100%;
+    height: 9vh;
+}
+
 .remain {
     font-family: 'Fira Code', mono;
     margin-bottom: 5px;
@@ -66,7 +92,6 @@
 }
 
 .actions {
-    border: solid 1px var(--text);
     border-radius: 10px;
     padding: 5px 30px;
 }
@@ -79,14 +104,16 @@
 .roller {
     border: solid 1px var(--text);
     background-color: var(--dark);
+    overflow-y: auto;
+    font-family: 'Fira Sans', sans-serif;
+    height: 100%;
     padding-top: 2px;
     padding-left: 8px !important;
     padding-right: 8px !important;
     border-radius: 10px;
-    overflow-y: auto;
-    height: 75vh;
-    font-family: 'Fira Sans', sans-serif;
 }
+
+
 
 @media only screen and (max-width: 600px) {
     .content {
@@ -94,7 +121,6 @@
     }
     #main {
         display: grid;
-        padding: 0 1vh;
         overflow: hidden;
     }
 }
@@ -122,6 +148,21 @@
     height:20px;
 }
 
+.right {
+    display: flex;
+    flex-flow: row nowrap;
+    vertical-align: middle;
+    justify-content: space-between;
+}
+
+.right span {
+    margin-right: 2vh;
+    font-size: larger;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+}
+
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -138,24 +179,13 @@
     background: #555; 
 }
 
-.bottom { 
-    bottom: 0;
-    padding-bottom: 0px;
-    margin-bottom: 0px;
-    margin-top: 1vh;
-    width: 100%;
-    
-}
-
 .add {
     background-color: var(--accent);
-    height: 10vh;
-    border-top-left-radius: 10px;
-    border-top-right-radius: 10px;
+    height: 7vh;
+    border-radius: 10px;
     display: flex;
     flex-flow: row nowrap;
     background-color: var(--dark);
-    margin-bottom: 0;
     padding: 1vh;
 }
 

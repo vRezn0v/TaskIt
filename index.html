@@ -36,10 +36,12 @@
                             <div class="container-fluid task flex-row">
                                 <label class="checkbox check">
                                     <input type="checkbox" ng-model="todo.done" class="box">
-                                    <span class="todo done-{{todo.done}}">{{todo.text}}</span>
-                                    <div>
-                                        <button class="btn btn-info">Edit</button>
-                                        <button class="btn btn-danger">Delete</button>
+                                    <div class="right">
+                                        <span class="todo done-{{todo.done}}">{{todo.text}}</span>
+                                        <div>
+                                            <button class="btn btn-info" ng-click="todoList.editTask(this)">Edit</button>
+                                            <button class="btn btn-danger">Delete</button>
+                                        </div>
                                     </div>
                                 </label>
                             </div>
@@ -115,13 +117,19 @@
                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                     </div>
                     <div class="modal-body">
-                        <div class="container align-items-center content">
+                        <div class="roller">
                             <ul class="list-unstyled">
-                                <li ng-repeat="todo in todoList.todoarchive">
+                                <li ng-repeat="todo in todoList.todoarchive track by $index">
                                     <div class="container-fluid task flex-row">
                                         <label class="checkbox check">
                                             <input type="checkbox" ng-model="todo.done" class="box">
-                                            <span class="todo done-{{todo.done}}">{{todo.text}}</span>
+                                            <div class="right">
+                                                <span class="todo done-{{todo.done}}">{{todo.text}}</span>
+                                                <div>
+                                                    <button class="btn btn-info">Edit</button>
+                                                    <button class="btn btn-danger">Delete</button>
+                                                </div>
+                                            </div>
                                         </label>
                                     </div>
                                 </li>
