@@ -42,6 +42,15 @@
     background-color: var(--bg);
     color: var(--text);
     height: 100vh;
+    overflow: hidden;
+}
+
+#main {
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-between;
+    padding: 0 10vh;
+    overflow: hidden;
 }
 
 .remain {
@@ -49,10 +58,17 @@
     margin-bottom: 5px;
 }
 
-.header {
+.header, .actions {
     display: flex;
+    padding-top: 1vh;
     flex-flow: row wrap;
     justify-content: space-between;
+}
+
+.actions {
+    border: solid 1px var(--text);
+    border-radius: 10px;
+    padding: 5px 30px;
 }
 
 .header .app-title {
@@ -60,8 +76,8 @@
     font-size: 10vh;
 }
 
-.content {
-    border: solid 1px text;
+.roller {
+    border: solid 1px var(--text);
     background-color: var(--dark);
     padding-top: 2px;
     padding-left: 8px !important;
@@ -74,7 +90,12 @@
 
 @media only screen and (max-width: 600px) {
     .content {
-        height: 70vh;
+        height: 80vh;
+    }
+    #main {
+        display: grid;
+        padding: 0 1vh;
+        overflow: hidden;
     }
 }
 
@@ -118,17 +139,47 @@
 }
 
 .bottom { 
-    padding: 20px 5px;
-    position: fixed;
     bottom: 0;
-    left: 50%;
-    transform: translate(-50%, -50%);
     padding-bottom: 0px;
     margin-bottom: 0px;
+    margin-top: 1vh;
+    width: 100%;
+    
 }
 
 .add {
     background-color: var(--accent);
+    height: 10vh;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    display: flex;
+    flex-flow: row nowrap;
+    background-color: var(--dark);
+    margin-bottom: 0;
+    padding: 1vh;
+}
+
+.add .add-input {
+    width: 100%;
+    height: 100%;
+    text-align: center;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+}
+.add .add-button {
+    height: 100%;
+    width: 10%;
+    font-family: "Cutive", cursive;
+}
+
+.add-button input {
+    width: 100%;
+    height: 100%;
+    color: #fff;
+    background-color: var(--bg);
+    border-top-right-radius: 5px;
+    border-bottom-right-radius: 5px;
+    border-style: none;
 }
 
 .done-true {
