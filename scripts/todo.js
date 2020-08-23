@@ -1,7 +1,7 @@
 angular.module('todoApp', [])
   .controller('TodoListController', function($scope, $window) {
     var todoList = this;
-    todoList.todos = (localStorage.getItem('todo')!==null) ? JSON.parse(localStorage.getItem('todo')) : [{text:'Hello There', done:true},{text:'Get Started', done:false}];
+    todoList.todos = (localStorage.getItem('todo')!==null) ? JSON.parse(localStorage.getItem('todo')) : [{text:'Welcome to TaskIt', done:true},{text:'Have a nice day!', done:false}];
     todoList.theme = (localStorage.getItem('theme')!==null) ? localStorage.getItem('theme') : 'light';
     todoList.todoarchive = (localStorage.getItem('archive')!==null) ? JSON.parse(localStorage.getItem('archive')) : [];
     $scope.editTaskItem = null;
