@@ -33,17 +33,17 @@
                 <div class="roller">
                     <ul class="list-unstyled">
                         <li ng-repeat="todo in todoList.todos track by $index">
-                            <div class="container-fluid task flex-row">
+                            <div class="container-fluid task flex-row" oncontextmenu="$(this).siblings().collapse('toggle');return false;">
                                 <label class="checkbox check">
                                     <input type="checkbox" ng-model="todo.done" class="box">
                                     <div class="right">
                                         <span class="todo done-{{todo.done}}">{{todo.text}}</span>
-                                        <div>
-                                            <button class="btn btn-info" ng-click="todoList.editTask(this)">Edit</button>
-                                            <button class="btn btn-danger" ng-click="todoList.deleteTask(this)">Delete</button>
-                                        </div>
                                     </div>
                                 </label>
+                            </div>
+                            <div class="cxmenu collapse" id="cxt-{{$index}}">
+                                <a class="dropdown-item edit" href="#" ng-click="todoList.editTask(this)">Edit</a>
+                                <a class="dropdown-item delete" href="#" ng-click="todoList.deleteTask(this)">Delete</a>
                             </div>
                         </li>
                     </ul>

@@ -55,6 +55,8 @@
 
 #main .other-half {
     height: 85vh;
+    display: grid;
+    grid-template-rows: 10% auto 10%;
     overflow: hidden;
 }
 
@@ -63,7 +65,8 @@
     padding-left: 8px !important;
     padding-right: 8px !important;
     border-radius: 10px;
-    height: 75vh;
+    height: 100%;
+    grid-row: 1 / 3;
     background-color: var(--fill);
     overflow: hidden;
     display: flex;
@@ -74,9 +77,9 @@
     bottom: 0;
     padding-bottom: 0px;
     margin-bottom: 0px;
-    margin-top: 1vh;
+    margin-top: 5px;
     width: 100%;
-    height: 9vh;
+    height: 100%;
 }
 
 .remain {
@@ -119,7 +122,24 @@
     #main {
         display: grid;
         overflow: hidden;
-        padding: 0 1vh;
+        padding: 0 10px;
+    }
+    .add {
+        background-color: var(--accent);
+        height: 100%;
+        width: 100%;
+        border-radius: 10px;
+        display: flex;
+        flex-flow: row nowrap;
+        background-color: var(--dark);
+        padding: 1vh;
+    }
+    .add .add-button {
+        width: 25%!important;
+    }
+
+    .add .add-input {
+        width: 75%;
     }
 }
 
@@ -132,6 +152,44 @@
     background-color: var(--bg);
     margin: 5px 0px;
     vertical-align: middle;
+}
+
+.cxmenu {
+    background-color: var(--accent);
+    margin-top: 0;
+    border-radius: 15px;
+    text-align: center;
+}
+
+.cxmenu .edit, .cxmenu .delete {
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.cxmenu .edit {
+    color: rgb(91, 91, 255);
+    margin-bottom: 2px;
+    border-top-right-radius: 15px;
+    border-top-left-radius: 15px;
+}
+
+.cxmenu .delete {
+    color: rgb(253, 61, 61);
+    border-top: solid gray 1px;
+    border-bottom-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+
+.modal {
+    border-radius: 10px;
+}
+.modal-header, .modal-footer {
+    background-color: black!important;
+    color: white!important;
+}
+
+.modal-content {
+    background-color: var(--bg)!important;
+    color: black!important;
 }
 
 .check {
@@ -179,7 +237,7 @@
 
 .add {
     background-color: var(--accent);
-    height: 7vh;
+    height: 100%;
     border-radius: 10px;
     display: flex;
     flex-flow: row nowrap;
@@ -228,6 +286,7 @@
     width: 100%;
     height: 50px;
     border-radius: 5px;
+    padding: 0 20px;
 }
 
 .theme-selector {
