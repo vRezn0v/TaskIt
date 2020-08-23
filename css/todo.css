@@ -122,6 +122,7 @@
     #main {
         display: grid;
         overflow: hidden;
+        padding: 0 1vh;
     }
 }
 
