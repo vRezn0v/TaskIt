@@ -226,6 +226,12 @@
     color: var(--text)!important;
 }
 
+.editorView {
+    width: 100%;
+    height: 50px;
+    border-radius: 5px;
+}
+
 .theme-selector {
     display: none;
     background-color: var(--bg);

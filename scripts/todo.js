@@ -4,7 +4,9 @@ angular.module('todoApp', [])
     todoList.todos = (localStorage.getItem('todo')!==null) ? JSON.parse(localStorage.getItem('todo')) : [{text:'Hello There', done:true},{text:'Get Started', done:false}];
     todoList.theme = (localStorage.getItem('theme')!==null) ? localStorage.getItem('theme') : 'light';
     todoList.todoarchive = (localStorage.getItem('archive')!==null) ? JSON.parse(localStorage.getItem('archive')) : [];
-
+    $scope.editTaskItem = null;
+    $scope.editedFlag = false;
+    $scope.deletionFlag = false;
     todoList.changeTheme = function(themeclass){
       todoList.theme = themeclass;
       window.localStorage.setItem('theme', todoList.theme);
@@ -50,11 +52,48 @@ angular.module('todoApp', [])
           todoList.todos.push(todo);
         }
       });
+      $('#archives').modal('toggle');
     };
     
+    todoList.saveTask = function() {
+      $scope.editedFlag = true;
+      $('#editTask').modal('toggle');
+      $scope.editTaskItem = null;
+    }
+
+    todoList.delTask = function() {
+      $scope.deletionFlag = true;
+      $('#taskDelete').modal('toggle');
+    }
+
     todoList.editTask = function(object) {
       let todo = object.todo;
       console.log(todo.text);
+      $scope.editTaskItem = todo.text;
+      $("#editTask").modal('show');
+      $('#editTask').on('hide.bs.modal', function() {
+        if ($scope.editedFlag===true) {
+          if ($scope.editTaskItem===""){
+            todoList.deleteTask(object);
+          }
+          else {
+            object.todo.text = $scope.editTaskItem;
+            location.reload();
+          }
+        }
+      });
+      $scope.editedFlag = false;
+    }
+
+    todoList.deleteTask = function(object) {
+      console.log(object.todo.text);
+      $("#taskDelete").modal('show');
+      $('#taskDelete').on('hide.bs.modal', function() {
+        if ($scope.deletionFlag===true) {
+          todoList.todos = todoList.todos.filter(function(value, index, arr){ return value != object.todo;})
+        }
+      });
+      $scope.deletionFlag = false;
     }
 
     todoList.reset = function() {
