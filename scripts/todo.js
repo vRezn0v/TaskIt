@@ -67,6 +67,7 @@ angular.module('todoApp', [])
     }
 
     todoList.editTask = function(object) {
+      console.log(object);
       let todo = object.todo;
       console.log(todo.text);
       $scope.editTaskItem = todo.text;
