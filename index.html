@@ -49,15 +49,10 @@
                     </ul>
                 </div>
             </div>
-            <form ng-submit="todoList.addTodo()" class="bottom">
-                <div class="add">
-                    <input type="text" ng-model="todoList.todoText" class="add-input"
-                    placeholder="Add a todo" required>
-                    <div class="add-button">
-                        <input type="submit" value="Add">
-                    </div>
-                </div>
-            </form>
+            <div class="bulk-section">
+                <div class="btn add-button"  data-toggle="modal" data-target="#addTaskModal"><b>Add A Task</b></div>
+            </div>
+            <!--Modals-->
             <div class="modal" id="themeSelector">
                 <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
@@ -104,11 +99,34 @@
                         <br>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn cancel" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
         </div>
+        <div class="modal" id="addTaskModal">
+            <div class="modal-dialog modal-xl modal-dialog-centered">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h4 class="modal-title settings">Add Task</h4>
+                        <button type="button" class="close" data-dismiss="modal">&times;</button>
+                    </div>
+                    <form ng-submit="todoList.addTodo()" class="bottom">
+                        <div>
+                            <div class="modal-body">
+                                <input type="text" ng-model="todoList.todoText"
+                                placeholder="Add a todo" class="editorView" required>
+                            </div>
+                        </div>
+                        <div class="modal-footer">
+                            <input type="submit" class="btn confirmbtn" value="Add">
+                            <button type="button" class="btn cancelbtn" data-dismiss="modal">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
         <div class="modal" id="archives">
             <div class="modal-dialog modal-xl modal-dialog-centered">
                 <div class="modal-content">
@@ -133,8 +151,8 @@
                         </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-info" ng-click="todoList.unarchive()">Unarchive</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn confirmbtn" ng-click="todoList.unarchive()">Unarchive</button>
+                        <button type="button" class="btn cancelbtn" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -150,8 +168,8 @@
                         <input ng-model="editTaskItem" class="editorView">
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-success" ng-click="todoList.saveTask()">Save</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn confirmbtn" ng-click="todoList.saveTask()">Save</button>
+                        <button type="button" class="btn cancelbtn" data-dismiss="modal">Close</button>
                     </div>
                 </div>
             </div>
@@ -167,8 +185,8 @@
                         Are you sure you want to delete task?
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" ng-click="todoList.delTask()">Delete</button>
-                        <button type="button" class="btn" data-dismiss="modal">Cancel</button>
+                        <button type="button" class="btn confirmbtn" ng-click="todoList.delTask()">Delete</button>
+                        <button type="button" class="btn cancelbtn" data-dismiss="modal">Cancel</button>
                     </div>
                 </div>
             </div>
