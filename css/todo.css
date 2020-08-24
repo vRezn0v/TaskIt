@@ -45,16 +45,26 @@
     overflow: hidden;
 }
 
+body {
+    -youbkit-touch-callout: none;
+    -youbkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+
 #main {
     display: flex;
     flex-flow: column nowrap;
     justify-content: space-between;
     padding: 0 10vh;
     overflow: hidden;
+    height: 100vh;
 }
 
 #main .other-half {
-    height: 85vh;
+    height: 85%;
     display: grid;
     grid-template-rows: 10% auto 10%;
     overflow: hidden;
@@ -116,11 +126,8 @@
     border-radius: 10px;
 }
 
-
-
 @media only screen and (max-width: 600px) {
     #main {
-        display: grid;
         overflow: hidden;
         padding: 0 10px;
     }
@@ -133,6 +140,7 @@
         flex-flow: row nowrap;
         background-color: var(--dark);
         padding: 1vh;
+        margin: 0!important;
     }
     .add .add-button {
         width: 25%!important;
@@ -150,46 +158,49 @@
     padding-bottom: 15px;
     border-radius: 10px;
     background-color: var(--bg);
-    margin: 5px 0px;
+    margin: 10px 0px;
+    margin-bottom: 0;
     vertical-align: middle;
 }
 
 .cxmenu {
-    background-color: var(--accent);
+    background-color: var(--text);
     margin-top: 0;
     border-radius: 15px;
+    height: 102px;
     text-align: center;
 }
 
 .cxmenu .edit, .cxmenu .delete {
     background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 15px;
+    height: 50px;
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
 }
 
 .cxmenu .edit {
     color: rgb(91, 91, 255);
     margin-bottom: 2px;
-    border-top-right-radius: 15px;
-    border-top-left-radius: 15px;
 }
 
 .cxmenu .delete {
     color: rgb(253, 61, 61);
     border-top: solid gray 1px;
-    border-bottom-right-radius: 15px;
-    border-bottom-left-radius: 15px;
 }
 
 .modal {
     border-radius: 10px;
 }
 .modal-header, .modal-footer {
-    background-color: black!important;
+    background-color: var(--bg)!important;
     color: white!important;
 }
 
 .modal-content {
     background-color: var(--bg)!important;
-    color: black!important;
+    color: var(--text)!important;
 }
 
 .check {
@@ -237,7 +248,7 @@
 
 .add {
     background-color: var(--accent);
-    height: 100%;
+    height: 8vh;
     border-radius: 10px;
     display: flex;
     flex-flow: row nowrap;
