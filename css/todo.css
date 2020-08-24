@@ -131,7 +131,7 @@ body {
         overflow: hidden;
         padding: 0 10px;
     }
-    .add {
+    /*.add {
         background-color: var(--accent);
         height: 100%;
         width: 100%;
@@ -148,7 +148,7 @@ body {
 
     .add .add-input {
         width: 75%;
-    }
+    }*/
 }
 
 
@@ -194,8 +194,8 @@ body {
     border-radius: 10px;
 }
 .modal-header, .modal-footer {
-    background-color: var(--bg)!important;
-    color: white!important;
+    background-color: var(--text)!important;
+    color: var(--bg)!important;
 }
 
 .modal-content {
@@ -230,6 +230,27 @@ body {
     justify-content: center;
 }
 
+.bulk-section {
+    display: flex;
+    margin: 0 20px;
+    flex-flow: column nowrap;
+    justify-content: center;
+}
+
+.confirmbtn {
+    color: white!important;
+    background-color: var(--bg)!important;
+}
+
+.cancelbtn {
+    color: red!important;
+}
+
+.add-button {
+    background-color: var(--text)!important;
+    color: var(--bg)!important;
+}
+
 ::-webkit-scrollbar {
     width: 5px;
 }
@@ -244,39 +265,6 @@ body {
 
 ::-webkit-scrollbar-thumb:hover {
     background: #555; 
-}
-
-.add {
-    background-color: var(--accent);
-    height: 8vh;
-    border-radius: 10px;
-    display: flex;
-    flex-flow: row nowrap;
-    background-color: var(--dark);
-    padding: 1vh;
-}
-
-.add .add-input {
-    width: 100%;
-    height: 100%;
-    text-align: center;
-    border-top-left-radius: 5px;
-    border-bottom-left-radius: 5px;
-}
-.add .add-button {
-    height: 100%;
-    width: 10%;
-    font-family: "Cutive", cursive;
-}
-
-.add-button input {
-    width: 100%;
-    height: 100%;
-    color: #fff;
-    background-color: var(--bg);
-    border-top-right-radius: 5px;
-    border-bottom-right-radius: 5px;
-    border-style: none;
 }
 
 .done-true {
