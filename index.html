@@ -140,7 +140,7 @@
                                 <li ng-repeat="todo in todoList.todoarchive track by $index">
                                     <div class="container-fluid task flex-row">
                                         <label class="checkbox check">
-                                            <input type="checkbox" ng-model="todo.done" class="box">
+                                            <input type="checkbox" ng-model="todo.done" id="cbox">
                                             <div class="right">
                                                 <span class="todo done-{{todo.done}}">{{todo.text}}</span>
                                             </div>
