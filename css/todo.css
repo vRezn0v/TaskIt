@@ -210,9 +210,20 @@ body {
     margin-bottom: 0px !important;
 }
 
-.box {
-    width:20px;
-    height:20px;
+#cbox {
+    width: 2em;
+    height: 2em;
+    background-color: white;
+    border-radius: 25%;
+    vertical-align: middle;
+    border: 2px solid var(--text);
+    -webkit-appearance: none;
+    outline: none;
+    cursor: pointer;
+}
+
+#cbox:checked {
+    background-color: var(--bg);
 }
 
 .right {
