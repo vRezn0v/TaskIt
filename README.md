@@ -1,2 +1,15 @@
 # TaskIt
-A simple Tasks App buit with AngularJS.
+A simple Todo Application built with AngularJS relying on your BrowserStorage.
+
+### Features:
+- Support for Themes.
+- Import/Export Data as JSON.
+- Edit/Delete Tasks.
+- Tasks can be archived.
+- Responsive.
+- Data Stays in your browser.
+
+### Possible Updates:
+- Support For Markdown.
+- More Themes.
+- Major UI Overhaul.
