@@ -213,7 +213,7 @@ body {
 #cbox {
     width: 2em;
     height: 2em;
-    background-color: white;
+    background-color: var(--bg);
     border-radius: 25%;
     vertical-align: middle;
     border: 2px solid var(--text);
@@ -223,7 +223,10 @@ body {
 }
 
 #cbox:checked {
-    background-color: var(--bg);
+    background-color: gray;
+    padding: 5px!important;
+    border-width: 5px;
+    border-radius: 50%;
 }
 
 .right {
@@ -243,7 +246,7 @@ body {
 
 .bulk-section {
     display: flex;
-    margin: 0 20px;
+    margin: 0;
     flex-flow: column nowrap;
     justify-content: center;
 }
