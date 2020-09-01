@@ -131,26 +131,7 @@ body {
         overflow: hidden;
         padding: 0 10px;
     }
-    /*.add {
-        background-color: var(--accent);
-        height: 100%;
-        width: 100%;
-        border-radius: 10px;
-        display: flex;
-        flex-flow: row nowrap;
-        background-color: var(--dark);
-        padding: 1vh;
-        margin: 0!important;
-    }
-    .add .add-button {
-        width: 25%!important;
-    }
-
-    .add .add-input {
-        width: 75%;
-    }*/
 }
-
 
 .task {
     padding:10px;
@@ -193,14 +174,18 @@ body {
 .modal {
     border-radius: 10px;
 }
-.modal-header, .modal-footer {
-    background-color: var(--text)!important;
-    color: var(--bg)!important;
+.modal-header, .modal-footer, .modal-content {
+    background-color: var(--bg)!important;
+    color: var(--text)!important;
+    border: none!important;
+}
+
+.modal-title {
+    font-weight: 500!important;
 }
 
 .modal-content {
-    background-color: var(--bg)!important;
-    color: var(--text)!important;
+    font-family: 'Fira Code', mono;
 }
 
 .check {
@@ -223,10 +208,20 @@ body {
 }
 
 #cbox:checked {
-    background-color: gray;
     padding: 5px!important;
     border-width: 5px;
-    border-radius: 50%;
+    background-color: var(--text);
+    display: flex;
+    justify-content: center;
+}
+
+#cbox:checked:after {
+    content: '.';
+    font-size: 50px;
+    margin-top: -6px;
+    line-height: 0px;
+	color: var(--bg);
+    border-width: 5px;
 }
 
 .right {

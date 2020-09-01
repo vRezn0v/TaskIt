@@ -33,7 +33,7 @@
                 <div class="roller">
                     <ul class="list-unstyled">
                         <li ng-repeat="todo in todoList.todos track by $index">
-                            <div class="container-fluid task flex-row" oncontextmenu="$(this).siblings().collapse('toggle');return false;">
+                            <div class="container-fluid task flex-row" oncontextmenu="closeAllContext();$(this).siblings().collapse('toggle');return false;">
                                 <label class="checkbox check">
                                     <input type="checkbox" ng-model="todo.done" id="cbox">
                                     <div class="right">
@@ -191,5 +191,10 @@
                 </div>
             </div>
         </div>
+        <script>
+            function closeAllContext() {
+                $(".cxmenu").collapse('hide');
+            }
+        </script>
     </body>
 </html>
