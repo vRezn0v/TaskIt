@@ -24,11 +24,11 @@
         <div class="other-half">
             <div class="content">
                 <div class="actions">
+                    <span class="remain">{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
                     <div>
-                        <span class="remain">{{todoList.remaining()}} of {{todoList.todos.length}} remaining</span>
-                        [ <a href="" ng-click="todoList.archive()">Archive</a> ]
+                        <button class="btn btn-light archive-btn text-danger" ng-click="todoList.archive()">&Oslash</button>
+                        <button type="button" class="btn settings-btn btn-primary text-light" data-toggle="modal" data-target="#archives">Show Archived</button>
                     </div>
-                    <button type="button" class="btn settings-btn" data-toggle="modal" data-target="#archives">Show Archived</button>
                 </div>
                 <div class="roller">
                     <ul class="list-unstyled">

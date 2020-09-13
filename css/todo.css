@@ -53,7 +53,6 @@ body {
     user-select: none;
 }
 
-
 #main {
     display: flex;
     flex-flow: column nowrap;
@@ -279,6 +278,10 @@ body {
 .done-true {
     text-decoration: line-through;
     color: grey;
+}
+
+.archive-btn {
+    font-family: 'Cutive', serif;
 }
 
 .settings {
