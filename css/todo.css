@@ -295,9 +295,30 @@ body {
     font-family: 'Cutive', serif;
 }
 
+.settingswrap {
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    color: var(--text);
+}
+
+.settingswrap .settings-btn {
+    font-weight: 600;
+    box-shadow: 2px 2px 6px #1a1c1f;
+    transition: background-color 0.3s ease-in-out;
+}
+
+.settingswrap .settings-btn:hover {
+    color: var(--bg)!important;
+    background-color: var(--text)!important;
+    transition: color 0.3s ease-in-out;
+}
+
+
 .settings-btn {
     font-family: 'Cutive', serif;
     color: var(--text)!important;
+    background-color: var(--text);
 }
 
 .editorView {
