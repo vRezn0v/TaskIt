@@ -93,7 +93,13 @@ body {
 
 .remain {
     font-family: 'Fira Code', mono;
-    margin-bottom: 5px;
+    background-color: var(--accent);
+    display: flex;
+    flex-flow: column;
+    justify-content: center;
+    padding: 0 10px;
+    font-weight: 600;
+    border-radius: 5px;
 }
 
 .header, .actions {
@@ -246,12 +252,13 @@ body {
 }
 
 .confirmbtn {
-    color: white!important;
-    background-color: var(--bg)!important;
+    color: var(--bg)!important;
+    background-color: var(--text)!important;
 }
 
 .cancelbtn {
     color: red!important;
+    background-color: #fff!important;
 }
 
 .add-button {
