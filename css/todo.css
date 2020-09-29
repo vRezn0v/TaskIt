@@ -218,6 +218,7 @@ body {
     background-color: var(--text);
     display: flex;
     justify-content: center;
+    transition: background-color ease-in 300ms;
 }
 
 #cbox:checked:after {
@@ -225,7 +226,8 @@ body {
     font-size: 50px;
     margin-top: -6px;
     line-height: 0px;
-	color: var(--bg);
+    color: var(--bg);
+    transition: color ease-in 300ms;
     border-width: 5px;
 }
 
