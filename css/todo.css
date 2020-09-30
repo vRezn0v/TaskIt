@@ -210,6 +210,7 @@ body {
     -webkit-appearance: none;
     outline: none;
     cursor: pointer;
+    transition: background-color ease-in 300ms;
 }
 
 #cbox:checked {
@@ -219,16 +220,6 @@ body {
     display: flex;
     justify-content: center;
     transition: background-color ease-in 300ms;
-}
-
-#cbox:checked:after {
-    content: '.';
-    font-size: 50px;
-    margin-top: -6px;
-    line-height: 0px;
-    color: var(--bg);
-    transition: color ease-in 300ms;
-    border-width: 5px;
 }
 
 .right {
@@ -287,6 +278,8 @@ body {
 .done-true {
     text-decoration: line-through;
     color: grey;
+    transform: text-decoration ease 600ms,
+               color ease-in 500ms;
 }
 
 .archive-btn {
