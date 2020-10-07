@@ -23,3 +23,5 @@ A simple Todo Application built with AngularJS relying on your BrowserStorage.
 ## Change Log:
 - Auto Hide Open Context Menus While Opening A New One.
 - Minor UI Changes.
+- Cleaner checkboxes.
+- Label Support in Alpha now.
