@@ -19,7 +19,8 @@ A simple Todo Application built with AngularJS relying on your BrowserStorage.
 - Support For Markdown.
 - More Themes.
 - Major UI Overhaul.
-
+- Categories
+- Reminders
 ## Change Log:
 - Auto Hide Open Context Menus While Opening A New One.
 - Minor UI Changes.
