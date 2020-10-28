@@ -6,6 +6,22 @@
     --dark: #202b3f;
 }
 
+.cyansus {
+    --bg: #26b6dae8;
+    --accent: #818793;
+    --text: #1a1c1f;
+    --fill: #7ee5ff;
+    --dark: #2c90be;
+}
+
+.halloween {
+    --bg: #f07211;
+    --accent: #818793;
+    --text: #1a1c1f;
+    --fill: #ff872c;
+    --dark: #351700;
+}
+
 .arizona {
     --bg: #6ECFB9;
     --accent: #EEF7EA;
