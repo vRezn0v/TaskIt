@@ -26,3 +26,4 @@ A simple Todo Application built with AngularJS relying on your BrowserStorage.
 - Minor UI Changes.
 - Cleaner checkboxes.
 - Label Support in Alpha now.
+- Added 2 new Themes.
