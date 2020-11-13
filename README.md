@@ -29,3 +29,5 @@ A simple Todo Application built with AngularJS relying on your BrowserStorage.
 - Label Support in Alpha now.
 - Added 2 new Themes.
 ```
+## Contribution:
+Right now we're looking for new themes. For reference take a look at the main stylesheet for the Theme Naming and Creation Reference.
